@@ -1,0 +1,34 @@
+{
+    "name": "ghostunicorns/module-cms-block-customer-group",
+    "description": "This module allows you to choose which customer group can see CMS Blocks",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*",
+        "magento/module-cms": "*"
+    },
+    "authors": [
+        {
+            "name": "Danilo Argentiero",
+            "email": "argentiero.danilo@gmail.com",
+            "homepage": "https://www.linkedin.com/in/daniloargentiero/",
+            "role": "Software Architect"
+        },
+        {
+            "name": "Riccardo Ugolini",
+            "email": "riccardo.ugolini@gmail.com",
+            "homepage": "https://www.linkedin.com/in/riccardougolini/",
+            "role": "Software Architect"
+        }
+    ],
+    "license": [
+        "MIT"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "GhostUnicorns\\CmsBlockCustomerGroup\\": ""
+        }
+    }
+}

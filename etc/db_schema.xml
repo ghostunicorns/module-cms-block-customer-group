@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © Ghost Unicorns snc. All rights reserved.
+  ~ See LICENSE for license details.
+  -->
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="cms_block_customer_group" resource="default" engine="innodb" comment="CMS Block To Customer Group Linkage Table">
+        <column xsi:type="smallint" name="block_id" unsigned="false" nullable="false" identity="false"/>
+        <column xsi:type="int" name="customer_group_id" unsigned="true" nullable="false" identity="false"
+                comment="Customer Group ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="block_id"/>
+            <column name="customer_group_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="CMS_BLOCK_CUSTOMER_GROUP_BLOCK_ID_CMS_BLOCK_BLOCK_ID" table="cms_block_customer_group"
+                    column="block_id" referenceTable="cms_block" referenceColumn="block_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="CMS_BLOCK_CUSTOMER_GROUP_CUSTOMER_GROUP_ID_CUSTOMER_GROUP_CUSTOMER_GROUP_ID" table="cms_block_customer_group"
+                    column="customer_group_id" referenceTable="customer_group" referenceColumn="customer_group_id" onDelete="CASCADE"/>
+        <index referenceId="CMS_BLOCK_CUSTOMER_GROUP_CUSTOMER_GROUP_ID" indexType="btree">
+            <column name="customer_group_id"/>
+        </index>
+    </table>
+</schema>

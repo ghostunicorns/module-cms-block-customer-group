@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © Ghost Unicorns snc. All rights reserved.
+  ~ See LICENSE for license details.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Cms\Model\BlockRepository">
+        <plugin sortOrder="1" name="ghostUnicornsCmsBlockCustomerGroupBlockRepository"
+                type="GhostUnicorns\CmsBlockCustomerGroup\Plugin\Model\BlockRepositoryPlugin"/>
+    </type>
+    <type name="Magento\Cms\Controller\Adminhtml\Block\Save">
+        <plugin sortOrder="1" name="ghostUnicornsCmsBlockCustomerGroupSave"
+                type="GhostUnicorns\CmsBlockCustomerGroup\Plugin\Controller\Adminhtml\Block\SavePlugin"/>
+    </type>
+    <type name="Magento\Cms\Model\Block\DataProvider">
+        <plugin sortOrder="1" name="ghostUnicornsCmsBlockCustomerGroupDataProvider"
+                type="GhostUnicorns\CmsBlockCustomerGroup\Plugin\Model\Block\DataProviderPlugin"/>
+    </type>
+    <preference for="GhostUnicorns\CmsBlockCustomerGroup\Model\ResourceModel\GetBlockIdByBlockIdentifierInterface"
+                type="GhostUnicorns\CmsBlockCustomerGroup\Model\ResourceModel\GetBlockIdByBlockIdentifier"/>
+</config>
