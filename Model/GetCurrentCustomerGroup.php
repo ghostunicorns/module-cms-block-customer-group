@@ -9,23 +9,23 @@ declare(strict_types=1);
 namespace GhostUnicorns\CmsBlockCustomerGroup\Model;
 
 use Magento\Customer\Model\GroupManagement;
-use Magento\Customer\Model\Session;
+use Magento\Customer\Model\SessionFactory;
 use Magento\Framework\Exception\LocalizedException;
 
 class GetCurrentCustomerGroup
 {
     /**
-     * @var Session
+     * @var SessionFactory
      */
-    private $customerSession;
+    private $customerSessionFactory;
 
     /**
-     * @param Session $customerSession
+     * @param SessionFactory $customerSessionFactory
      */
     public function __construct(
-        Session $customerSession
+        SessionFactory $customerSessionFactory
     ) {
-        $this->customerSession = $customerSession;
+        $this->customerSessionFactory = $customerSessionFactory;
     }
 
     /**
@@ -34,6 +34,7 @@ class GetCurrentCustomerGroup
      */
     public function execute(): int
     {
-        return (int)$this->customerSession->getCustomerGroupId();
+        $customerGroupId = $this->customerSessionFactory->create();
+        return (int)$customerGroupId->getCustomerGroupId();
     }
 }
